@@ -1,6 +1,9 @@
 ---
+
 layout: post
+
 title: Better late than never : GSoC 2020
+
 ---
 ### Overview
 
