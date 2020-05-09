@@ -1,0 +1,39 @@
+---
+layout: post
+title: Better late than never : GSoC 2020
+---
+### Overview
+
+This summer (and beyond), I will be contributing to [SkyhookDM](https://sites.google.com/view/skyhook-programmable-storage) under [Google Summer of Code 2020](https://summerofcode.withgoogle.com/) under the flagship of [CERN-HSF](https://hepsoftwarefoundation.org/activities/gsoc.html) organisation. 
+SkyhookDM is an open source project within the [Center for Research on Open Source Software (CROSS)](https://cross.ucsc.edu/) at the [University of California Santa Cruz](https://www.ucsc.edu/). Over this summer, I would be working under the guidance of project mentors [Jeff LeFevre](https://users.soe.ucsc.edu/~jlefevre/), [Aaron Chu](https://xweichu.xyz/), [Ivo Jimenez](https://ivotron.me/) and [Noah Watkins](https://nwat.xyz/).
+
+### What is SkyhookDM?
+To put simply, SkyhookDM is a _programmable storage_ for databases. 
+
+> #### What is a programmable storage?
+> Most of the storage systems are designed to be treated as _monolithic_ in nature, meaning that they do not expose any details of their internal functionalities to the applications which interact with them.
+As a result of this, the applications which need such functionalities often need to have these functionalities implemented in them. This is clearly a case of extra work being done, when such a functionality could have been found lower in the stack.
+To counter this issue, programmable storage systems can be used, which expose the internal subsystem abstractions as _interfaces_ to enable the creation of higher-level services via composition.
+
+Skyhook leverages programmable storage capabilities to enable data management for elastic databases in the cloud. It is based upon the [Ceph](https://ceph.com/) distributed object storage system, which has [its origins](https://www.usenix.org/legacy/event/osdi06/tech/full_papers/weil/weil.pdf) at UC Santa Cruz. It allows data management directly within the storage layer of the distributed object storage system, in this case Ceph. 
+
+### My responsibilities
+Skyhook uses customised C++ object classes to offer support for offloading database operations directly to the object storage layer.  The project aims to improvise and extend SkyhookDM’s capabilities by incorporating the following functionalities:
+
+1.  GROUPBY and ORDERBY database operations: Extend current aggregation method to include GROUPBY and sort (ORDERBY) for an object’s formatted data partitions
+2.  Statistics collection: Implement a custom method for data statistics collection of an object’s formatted data partitions in form of histograms
+3.  Data compaction: Implement compaction of multiple formatted sub-partitions within an object into a single partition.
+
+#### My contributions so far
+Following are some of the issues I worked on (not necessarily related to proposal) to familiarise myself with the code base:
+1. [Upgrade Skyhook to Ceph Nautilus #86](https://github.com/uccross/skyhookdm-ceph/pull/86): Skyhook is built on Ceph v12.2.13 Luminous as of now, it is to be upgraded to v14.2 Nautilus
+2. [Replace deprecated functions in Apache Arrow 17 #88](https://github.com/uccross/skyhookdm-ceph/pull/88): Fixed some functions which were causing the build to fail when new Arrow version was released
+3. Others: [#82](https://github.com/uccross/skyhookdm-ceph/pull/82), [#97](https://github.com/uccross/skyhookdm-ceph/pull/97)
+
+### Epilogue
+Working towards and applying for this project has been an extremely productive and quality learning experience. I extend my heartfelt gratitude to my mentor  [Jeff LeFevre](https://users.soe.ucsc.edu/~jlefevre/) for guiding me along the process and helping me to figure things out.
+I would also like to thank my mom, for being a rock-solid support system and my friends, [Vanshika](https://github.com/vansjyo) and [DD](https://github.com/Dibyadarshan), for nudging me into giving GSoC a second shot. (Yes, I had applied and been rejected before once, in 2018)
+I feel privileged to be a part of the wonderful CROSS community and I look forward to having a fun-filled learning summer ahead!
+
+Until next time. :)
+Aditi
